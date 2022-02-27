@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EasyScrape Chrome Extension</title>
+    <link rel="stylesheet" href="./extension.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="top">
+      <img class="top-logo" src="./images/icon_48.png" alt="" />
+      <span class="main-head-txt"
+        >Article Clipper <span>by EasyScrape</span></span
+      >
+    </div>
+    <hr noshade />
+    <div class="main">
+      <div class="toggler">
+        <button class="btn" id="all">This Tab</button
+        ><button class="btn active-toggle" id="one">All Tabs</button>
+      </div>
+
+      <div class="mid-txt"><span>All URLs</span><button>Copy</button></div>
+      <div id="url-list"></div>
+      <div class="clip-btns">
+        <button class="clip-btn" id="Submit">Download Article</button>
+        <button class="clip-btn" id="simplify">Simplify Article</button>
+        <select class="clip-btn" name="files" id="file-select">
+          <option value="default">Download URL list</option>
+          <option value="txt">Text file</option>
+          <option value="html">HTML file</option>
+          <option value="pdf">pdf file</option>
+        </select>
+      </div>
+    </div>
+  </body>
+  <script src=" /js/content.js"></script>
+</html>

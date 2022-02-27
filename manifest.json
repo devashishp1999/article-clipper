@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "EasyScrape",
+  "description": "Scrape Articles from all of the Open URLs in your browser, with one click. ",
+  "version": "1.0",
+  "author": "Algrow Digital | Devashish Pujari | Karan Shah",
+  "icons": {
+    "16": "/images/icon_16.png",
+    "48": "/images/icon_48.png",
+    "128": "/images/icon_128.png"
+  },
+
+  "permissions": ["tabs", "storage", "activeTab"],
+  "action": {
+    "default_popup": "content.html",
+    "default_title": "EasyScrape"
+  }
+}
