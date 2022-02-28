@@ -95,39 +95,88 @@ hr {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--theme-blue);
+  margin-bottom: 0.8rem;
 }
 
-.mid-txt button {
+.mid-txt div {
   position: absolute;
   right: 0;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.mid-txt div button {
+  all: unset;
+  background-color: var(--theme-blue);
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.3rem;
+  cursor: pointer;
+  border: 2px solid var(--theme-blue);
+}
+
+.mid-txt div button:hover {
+  background-color: #fff;
+  color: var(--theme-blue);
 }
 
 #url-list {
   /* background-color: var(--light-grey-2); */
-  width: 100%;
+  max-height: 360px;
+  width: calc(400px - 2rem);
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  padding-right: 2px;
+}
+
+#url-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+#url-list::-webkit-scrollbar-thumb {
+  background: var(--theme-blue);
 }
 
 .url-select {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   cursor: default;
+  width: 100%;
+  margin: 0.1rem 0;
+
+  border-bottom: 1px solid var(--light-grey-2);
+  padding: 0.3rem;
+}
+
+.url-selected {
+  background-color: #6a74ef20;
+  border-bottom: 1px solid #fff;
+}
+
+.url-select:nth-child(1) {
+  margin-top: 0;
 }
 
 .favicon {
   width: 20px;
   height: 20px;
+  border: 1px solid var(--theme-lightblue);
+  margin-right: 0.5rem;
+  align-self: flex-start;
 }
 
 .url {
   text-align: start;
-  flex: 1;
-
+  width: 300px;
   word-wrap: break-word;
 }
 
 .box {
   width: 20px;
   height: 20px;
+  align-self: flex-start;
 }
 
 .clip-btns {

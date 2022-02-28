@@ -35,21 +35,32 @@ chrome.tabs.query({}, function (tabs) {
   mList(urlList, urlFav);
 
   const box = document.querySelectorAll(".box");
-  box.forEach((e) => {
+  const urlSelect = document.querySelectorAll(".url-select");
+
+  box.forEach((e, i) => {
     e.addEventListener("click", function () {
       if (this.checked) {
         urlArray.push(e.value);
-        console.log(urlArray);
+        urlSelect[i].classList.add("url-selected");
+        // console.log(urlArray);
       } else {
         urlArray.splice(urlArray.indexOf(e.value), 1);
-        console.log(urlArray);
+        urlSelect[i].classList.remove("url-selected");
+        // console.log(urlArray);
       }
     });
   });
 
-  const btn = document.getElementById("Submit");
+  for (let i = 0; i < urlSelect.length; i++) {
+    urlSelect[i].classList.add("url-selected");
+    urlSelect[i].addEventListener("click", () => {
+      box[i].click();
+    });
+  }
 
-  btn.addEventListener("click", function () {
+  const btnArticleDownload = document.getElementById("Submit");
+
+  btnArticleDownload.addEventListener("click", function () {
     var data = "";
     if (urlArray.length > 0) {
       for (var i = 0; i < urlArray.length; i++) {
@@ -169,9 +180,13 @@ chrome.tabs.query({}, function (tabs) {
 
       let x = `
       <div class="url-select">
-        <img src='${urlFav[i]}' class="favicon"/>
+        <img src='${
+          urlFav[i] ? urlFav[i] : "./images/icon_128.png" // default favicon
+        }' class="favicon"/>
         <p class="url">${urlList[i]}</p>
-        <input class='box' type='checkbox' name='checkbox' value='${urlList[i]}' checked>
+        <input class='box' type='checkbox' name='checkbox' value='${
+          urlList[i]
+        }' checked>
       </div>
       `;
       urlArray.push(urlList[i]);
